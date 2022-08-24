@@ -4,13 +4,20 @@ import com.alperArslan.springframeworkdependencyinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"com.alperArslan.springframeworkdependencyinjection","com.springframework.pets"})
 @SpringBootApplication
 public class SpringframeworkDependencyInjectionApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringframeworkDependencyInjectionApplication.class, args);
 
+		System.out.println("--- The Best Pet is ---");
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println(petController.whichPetIsTheBest());
+
+		System.out.println("--- My Controller ---");
 		MyController myController = (MyController) ctx.getBean("myController");
 
 		String greeting = myController.sayHello();
