@@ -1,6 +1,6 @@
 package com.alperArslan.springframeworkdependencyinjection.controllers;
 
-import com.alperArslan.springframeworkdependencyinjection.services.ConstructorInjectedGreetingService;
+import com.alperArslan.springframeworkdependencyinjection.services.SetterInjectedGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ class SetterInjectedControllerTest {
     void setUp() {
         controller = new SetterInjectedController();
 
-        controller.setGreetingService(new ConstructorInjectedGreetingService());
+        controller.setGreetingService(new SetterInjectedGreetingService());
     }
 
     @Test
