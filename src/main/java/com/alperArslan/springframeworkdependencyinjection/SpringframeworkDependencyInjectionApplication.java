@@ -4,9 +4,11 @@ import com.alperArslan.springframeworkdependencyinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
+//import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"com.alperArslan.springframeworkdependencyinjection","com.springframework.pets"})
+//@ComponentScan(basePackages = {"com.alperArslan.springframeworkdependencyinjection","com.springframework.pets"})
+// We can now remove componentScan because we are utilizing all of the components as a bean in out app
+
 @SpringBootApplication
 public class SpringframeworkDependencyInjectionApplication {
 
