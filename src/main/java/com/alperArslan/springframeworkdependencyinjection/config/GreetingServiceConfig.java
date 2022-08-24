@@ -2,16 +2,14 @@ package com.alperArslan.springframeworkdependencyinjection.config;
 
 import com.alperArslan.springframeworkdependencyinjection.repositories.EnglishGreetingRepository;
 import com.alperArslan.springframeworkdependencyinjection.repositories.EnglishGreetingRepositoryImpl;
-import com.alperArslan.springframeworkdependencyinjection.services.ConstructorInjectedGreetingService;
+// import com.alperArslan.springframeworkdependencyinjection.services.ConstructorInjectedGreetingService;
 import com.alperArslan.springframeworkdependencyinjection.services.I18nGreetingService;
 import com.alperArslan.springframeworkdependencyinjection.services.PrimaryGreetingService;
 import com.springframework.pets.PetService;
 import com.springframework.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -32,16 +30,18 @@ public class GreetingServiceConfig {
         return petServiceFactory.getPetService("cat");
     }
 
-    @Bean
-    ConstructorInjectedGreetingService constructorInjectedGreetingService(){
-        return new ConstructorInjectedGreetingService();
-    }
+
+    //@Bean
+    //ConstructorInjectedGreetingService constructorInjectedGreetingService(){
+       // return new ConstructorInjectedGreetingService();
+    // }
 
     @Primary
     @Bean
     PrimaryGreetingService primaryGreetingService(){
         return new PrimaryGreetingService();
     }
+
 
     @Bean
     EnglishGreetingRepository englishGreetingRepository(){
