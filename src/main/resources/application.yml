@@ -3,6 +3,16 @@ spring:
     active:
       - EN
       - dog
+      - prod
 
 alper:
   jdbcurl: someYmlFileUrlforDB
+
+---
+
+spring:
+  profiles:
+    - prod
+
+alper:
+  jdbcurl: someProdYmlFileUrlforDB
