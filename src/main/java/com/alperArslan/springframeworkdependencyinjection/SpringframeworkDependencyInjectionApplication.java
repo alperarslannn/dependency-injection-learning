@@ -1,6 +1,7 @@
 package com.alperArslan.springframeworkdependencyinjection;
 
 import com.alperArslan.springframeworkdependencyinjection.controllers.*;
+import com.alperArslan.springframeworkdependencyinjection.datasource.FakeDatasource;
 import com.alperArslan.springframeworkdependencyinjection.services.PrototypeBean;
 import com.alperArslan.springframeworkdependencyinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -72,7 +73,12 @@ public class SpringframeworkDependencyInjectionApplication {
 		PrototypeBean prototypeBean1 = (PrototypeBean) ctx.getBean("prototypeBean");
 		System.out.println(prototypeBean1.getMyScope());
 
+		System.out.println("--------- External Properties --------");
 
+		FakeDatasource fakeDatasource = ctx.getBean(FakeDatasource.class);
+		System.out.println(fakeDatasource.getUsername());
+		System.out.println(fakeDatasource.getPassword());
+		System.out.println(fakeDatasource.getJdbcUrl());
 
 	}
 
