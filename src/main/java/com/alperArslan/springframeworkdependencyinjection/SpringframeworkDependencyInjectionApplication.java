@@ -1,9 +1,11 @@
 package com.alperArslan.springframeworkdependencyinjection;
 
 import com.alperArslan.springframeworkdependencyinjection.config.SfDiConfig;
+import com.alperArslan.springframeworkdependencyinjection.config.SfDiConstructorConfig;
 import com.alperArslan.springframeworkdependencyinjection.controllers.*;
 import com.alperArslan.springframeworkdependencyinjection.datasource.FakeDatasource;
 import com.alperArslan.springframeworkdependencyinjection.datasource.SecondFakeDataSource;
+import com.alperArslan.springframeworkdependencyinjection.datasource.ThirdFakeDataSource;
 import com.alperArslan.springframeworkdependencyinjection.services.PrototypeBean;
 import com.alperArslan.springframeworkdependencyinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -89,12 +91,26 @@ public class SpringframeworkDependencyInjectionApplication {
 		System.out.println(sfDiConfig.getPassword());
 		System.out.println(sfDiConfig.getJdbcUrl());
 
-		System.out.println("--------- Config Props Bean used in SecondFakeDatasource--------");
+		System.out.println("--------- Config Props Bean used in SecondFakeDatasource --------");
 
 		SecondFakeDataSource secondFakeDataSource = ctx.getBean(SecondFakeDataSource.class);
 		System.out.println(secondFakeDataSource.getUsername());
 		System.out.println(secondFakeDataSource.getPassword());
 		System.out.println(secondFakeDataSource.getJdbcUrl());
+
+		System.out.println("--------- Constructor Properties Binding --------");
+
+		SfDiConstructorConfig sfDiConstructorConfig = ctx.getBean(SfDiConstructorConfig.class);
+		System.out.println(sfDiConstructorConfig.getUsername());
+		System.out.println(sfDiConstructorConfig.getPassword());
+		System.out.println(sfDiConstructorConfig.getJdbcUrl());
+
+		System.out.println("--------- Config Props Bean used in ThirdFakeDataSource --------");
+
+		ThirdFakeDataSource thirdFakeDataSource = ctx.getBean(ThirdFakeDataSource.class);
+		System.out.println(thirdFakeDataSource.getUsername());
+		System.out.println(thirdFakeDataSource.getPassword());
+		System.out.println(thirdFakeDataSource.getJdbcUrl());
 
 	}
 

@@ -2,6 +2,7 @@ package com.alperArslan.springframeworkdependencyinjection.config;
 
 import com.alperArslan.springframeworkdependencyinjection.datasource.FakeDatasource;
 import com.alperArslan.springframeworkdependencyinjection.datasource.SecondFakeDataSource;
+//import com.alperArslan.springframeworkdependencyinjection.datasource.ThirdFakeDataSource;
 import com.alperArslan.springframeworkdependencyinjection.repositories.EnglishGreetingRepository;
 import com.alperArslan.springframeworkdependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 // import com.alperArslan.springframeworkdependencyinjection.services.ConstructorInjectedGreetingService;
@@ -10,13 +11,23 @@ import com.alperArslan.springframeworkdependencyinjection.services.PrimaryGreeti
 import com.springframework.pets.PetService;
 import com.springframework.pets.PetServiceFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(SfDiConstructorConfig.class)
 @PropertySource(value="classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+    /*@Bean
+    ThirdFakeDataSource thirdFakeDataSource(SfDiConstructorConfig sfDiConstructorConfig){
+        ThirdFakeDataSource thirdFakeDataSource = new ThirdFakeDataSource();
+        thirdFakeDataSource.setUsername(sfDiConstructorConfig.getUsername());
+        thirdFakeDataSource.setPassword(sfDiConstructorConfig.getPassword());
+        thirdFakeDataSource.setJdbcUrl(sfDiConstructorConfig.getJdbcUrl());
 
+        return thirdFakeDataSource;
+    }*/
     @Bean
     SecondFakeDataSource secondFakeDataSource(SfDiConfig sfDiConfig){
         SecondFakeDataSource secondFakeDataSource = new SecondFakeDataSource();
