@@ -1,6 +1,7 @@
 package com.alperArslan.springframeworkdependencyinjection.config;
 
 import com.alperArslan.springframeworkdependencyinjection.datasource.FakeDatasource;
+import com.alperArslan.springframeworkdependencyinjection.datasource.SecondFakeDataSource;
 import com.alperArslan.springframeworkdependencyinjection.repositories.EnglishGreetingRepository;
 import com.alperArslan.springframeworkdependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 // import com.alperArslan.springframeworkdependencyinjection.services.ConstructorInjectedGreetingService;
@@ -15,6 +16,16 @@ import org.springframework.context.annotation.*;
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    SecondFakeDataSource secondFakeDataSource(SfDiConfig sfDiConfig){
+        SecondFakeDataSource secondFakeDataSource = new SecondFakeDataSource();
+        secondFakeDataSource.setUsername(sfDiConfig.getUsername());
+        secondFakeDataSource.setPassword(sfDiConfig.getPassword());
+        secondFakeDataSource.setJdbcUrl(sfDiConfig.getJdbcUrl());
+
+        return secondFakeDataSource;
+    }
 
     @Bean
     FakeDatasource fakeDatasource(@Value("${alper.username}") String username,

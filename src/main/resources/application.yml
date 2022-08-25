@@ -8,6 +8,11 @@ spring:
 alper:
   jdbcurl: someYmlFileUrlforDB
 
+banana:
+  username: bananaPropertyDbUser
+  password: bananaPropertyPassword
+  jdbcurl: bananaPropertyUrl
+
 ---
 
 spring:

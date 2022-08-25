@@ -1,7 +1,9 @@
 package com.alperArslan.springframeworkdependencyinjection;
 
+import com.alperArslan.springframeworkdependencyinjection.config.SfDiConfig;
 import com.alperArslan.springframeworkdependencyinjection.controllers.*;
 import com.alperArslan.springframeworkdependencyinjection.datasource.FakeDatasource;
+import com.alperArslan.springframeworkdependencyinjection.datasource.SecondFakeDataSource;
 import com.alperArslan.springframeworkdependencyinjection.services.PrototypeBean;
 import com.alperArslan.springframeworkdependencyinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -79,6 +81,20 @@ public class SpringframeworkDependencyInjectionApplication {
 		System.out.println(fakeDatasource.getUsername());
 		System.out.println(fakeDatasource.getPassword());
 		System.out.println(fakeDatasource.getJdbcUrl());
+
+		System.out.println("--------- Config Props Bean --------");
+
+		SfDiConfig sfDiConfig = ctx.getBean(SfDiConfig.class);
+		System.out.println(sfDiConfig.getUsername());
+		System.out.println(sfDiConfig.getPassword());
+		System.out.println(sfDiConfig.getJdbcUrl());
+
+		System.out.println("--------- Config Props Bean used in SecondFakeDatasource--------");
+
+		SecondFakeDataSource secondFakeDataSource = ctx.getBean(SecondFakeDataSource.class);
+		System.out.println(secondFakeDataSource.getUsername());
+		System.out.println(secondFakeDataSource.getPassword());
+		System.out.println(secondFakeDataSource.getJdbcUrl());
 
 	}
 
