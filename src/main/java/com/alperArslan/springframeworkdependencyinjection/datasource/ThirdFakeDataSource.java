@@ -1,8 +1,10 @@
 package com.alperArslan.springframeworkdependencyinjection.datasource;
 
 import com.alperArslan.springframeworkdependencyinjection.config.SfDiConstructorConfig;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+@EnableConfigurationProperties(SfDiConstructorConfig.class)
 @Component
 public class ThirdFakeDataSource {
     private String username;

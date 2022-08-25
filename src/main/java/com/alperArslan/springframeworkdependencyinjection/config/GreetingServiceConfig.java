@@ -11,10 +11,9 @@ import com.alperArslan.springframeworkdependencyinjection.services.PrimaryGreeti
 import com.springframework.pets.PetService;
 import com.springframework.pets.PetServiceFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+// import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
-@EnableConfigurationProperties(SfDiConstructorConfig.class)
 @PropertySource(value="classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
