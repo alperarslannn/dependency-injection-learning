@@ -1,6 +1,8 @@
 package com.alperArslan.springframeworkdependencyinjection;
 
 import com.alperArslan.springframeworkdependencyinjection.controllers.*;
+import com.alperArslan.springframeworkdependencyinjection.services.PrototypeBean;
+import com.alperArslan.springframeworkdependencyinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -55,6 +57,20 @@ public class SpringframeworkDependencyInjectionApplication {
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 
 		System.out.println(i18nController.sayHello());
+
+		System.out.println("--------- Bean Scopes --------");
+
+		SingletonBean singletonBean = ctx.getBean(SingletonBean.class);
+		System.out.println(singletonBean.getMyScope());
+
+		SingletonBean singletonBean1 = (SingletonBean) ctx.getBean("singletonBean");
+		System.out.println(singletonBean1.getMyScope());
+
+		PrototypeBean prototypeBean = ctx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean.getMyScope());
+
+		PrototypeBean prototypeBean1 = (PrototypeBean) ctx.getBean("prototypeBean");
+		System.out.println(prototypeBean1.getMyScope());
 
 
 
