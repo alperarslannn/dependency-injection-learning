@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active:
+      - EN
+      - dog
+
+alper:
+  jdbcurl: someYmlFileUrlforDB
